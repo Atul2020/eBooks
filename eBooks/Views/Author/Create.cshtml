@@ -1,0 +1,55 @@
+﻿@model eBooks.Models.Author
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <h1 class="text-center">Add a New Author</h1>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group text-center">
+             <img id="ProfilePicturePreview"  class="border-info rounded-circle" style="max-width: 150px" />
+              </div>
+            <div class="form-group">
+                <label asp-for="AuthorProfilePicture" class="control-label"></label>
+                <input asp-for="AuthorProfilePicture" class="form-control" />
+                <span asp-validation-for="AuthorProfilePicture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorName" class="control-label"></label>
+                <input asp-for="AuthorName" class="form-control" />
+                <span asp-validation-for="AuthorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorBio" class="control-label"></label>
+                <input asp-for="AuthorBio" class="form-control" />
+                <span asp-validation-for="AuthorBio" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-outline-success float-end"/>
+                <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+            </div>
+        </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('ProfilePicturePreview');
+            output.src = $("#AuthorProfilePicture").val();
+        })
+        $("#AuthorProfilePicture").on("change", function () {
+            var output = document.getElementById('ProfilePicturePreview');
+            output.src = $(this).val();
+        })
+    </script>
+
+}

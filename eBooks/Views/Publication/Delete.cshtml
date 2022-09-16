@@ -1,0 +1,36 @@
+﻿@model eBooks.Models.Publication
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div>
+    <h1>Delete Publication @Model.PublicationName</h1>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PublicationLogo)
+        </dt>
+        <dd class = "col-sm-10">
+            @*@Html.DisplayFor(model => model.PublicationLogo)*@
+            <img src="@Model.PublicationLogo" id="ProfilePicturePreview" alt="@Model.PublicationName" class="border-info rounded-circle" style="max-width: 150px" /> 
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PublicationName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PublicationName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PublicationFamousBooks)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PublicationFamousBooks)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="PublicationID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+    </form>
+</div>

@@ -1,0 +1,37 @@
+﻿@model eBooks.Models.Author
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Author</h4>
+
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AuthorProfilePicture)
+        </dt>
+        <dd class = "col-sm-10">
+            @*@Html.DisplayFor(model => model.AuthorProfilePicture)*@
+            <img src="@Model.AuthorProfilePicture" id="ProfilePicturePreview" alt="@Model.AuthorName class="border-info rounded-circle" style="max-width: 150px" /> 
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AuthorName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AuthorBio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AuthorBio)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.AuthorID">Edit</a> |
+    <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+</div>

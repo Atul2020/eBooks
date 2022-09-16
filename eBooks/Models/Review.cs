@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eBooks.Models
@@ -9,9 +10,10 @@ namespace eBooks.Models
         public int ReviewID { get; set; }
         public string BookReview { get; set; }
         public int BookRating { get; set; }
-
+        [Display(Name ="Book Name")]
         public int BookID { get; set; }
         [ForeignKey("BookID")]
+        [ValidateNever]
         public Book Book { get; set; }
         //public int UserID { get; set; }
     }

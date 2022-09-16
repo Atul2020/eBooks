@@ -1,0 +1,62 @@
+﻿@model IEnumerable<eBooks.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<head><h1 align="center">Welcome To The Book Store!!!</h1></head>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10">
+            <div class="row p-2 bg-white border rounded">
+                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="@item.BookImageURL"></div>
+                <div class="col-md-6 mt-1">
+                    <p class="card-text"><b>@item.BookName</b></p>
+                            
+                            <p class="card-text">@item.BookDescription</p>
+                           
+                            <p class="card-text"><b>Category: </b>@item.Category.CategoryName</p>
+                            <p class="card-text"><b>Publication Date: </b>@item.BookPublicationDate.ToString("dd MMM yy")</p>
+                            <p class="card-text"><b>Publication Name: </b>@item.Publication.PublicationName</p>
+                            <p class="card-text ">
+                                <b>Status: </b>
+                                @if (DateTime.Now >= item.BookPublicationDate)
+                                {
+                                    <span class="badge bg-success text-white">AVAILABLE</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-primary text-white">UPCOMING</span>
+                                }
+                            </p>
+
+                            <p class="card-text"><a class="btn btn-outline-primary float-right" asp-action="Index" asp-controller="Review" asp-route-id="@item.BookID">Show Reviews</a> </p>
+                </div>
+                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                    <div class="d-flex flex-row align-items-center">
+                        <h4 class="mr-1">@item.BookPrice.ToString("c")</h4>
+                    </div>
+                    <h6 class="text-success">Free shipping</h6>
+                    <div class="d-flex flex-column mt-4">
+                        <p class="card-text">
+                                <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.BookID">
+                                    <i class="bi bi-eye-fill"></i> Show Details
+                                </a>
+                                <a class="btn btn-success text-white @((DateTime.Now < item.BookPublicationDate) ? "disabled" : "")" 
+                                   asp-controller="Orders" 
+                                   asp-action="AddItemToShoppingCart" 
+                                   asp-route-id="@item.BookID">
+                                <i class="bi bi-cart-plus"></i> Add to Cart (Price @item.BookPrice.ToString("c"))</a></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+    </div>
+    
+    }
+</div>

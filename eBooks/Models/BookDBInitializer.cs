@@ -17,31 +17,31 @@
                     {
                         new Author()
                         {
-                            AuthorProfilePicture = "http://dotnethow.net/images/actors/actor-1.jpeg",
+                            AuthorProfilePicture = "https://i.ibb.co/k9Q1cc4/Jkrowling.jpg",
                             AuthorName = "JK Rowling",
                             AuthorBio = "J.K. Rowling is the author of the much-loved series of seven Harry Potter novels, originally published between 1997 and 2007."
                         },
                         new Author()
                         {
-                            AuthorProfilePicture = "http://dotnethow.net/images/actors/actor-2.jpeg",
+                            AuthorProfilePicture = "https://i.ibb.co/30FhTPj/roalddahl.jpg",
                             AuthorName = "Roald Dahl",
                             AuthorBio = "Roald Dahl was a British novelist, short-story writer, poet, screenwriter, and wartime fighter pilot of Norwegian descent."
                         },
                         new Author()
                         {
-                            AuthorProfilePicture = "http://dotnethow.net/images/actors/actor-3.jpeg",
+                            AuthorProfilePicture = "https://i.ibb.co/4FXk69D/jacqueline-wilson.jpg",
                             AuthorName = "Jacqueline Wilson",
                             AuthorBio = "Dame Jacqueline Wilson DBE FRSL is an English novelist known for her popular children's literature."
                         },
                         new Author()
                         {
-                            AuthorProfilePicture = "http://dotnethow.net/images/actors/actor-4.jpeg",
+                            AuthorProfilePicture = "https://i.ibb.co/7kwXPBG/williamshakespeare.jpg",
                             AuthorName = "William Shakespeare",
                             AuthorBio = "William Shakespeare was an English playwright, poet and actor. He is widely regarded as the greatest writer in the English language and the world's greatest dramatist."
                         },
                         new Author()
                         {
-                            AuthorProfilePicture = "http://dotnethow.net/images/actors/actor-5.jpeg",
+                            AuthorProfilePicture = "https://i.ibb.co/SXj59Vj/stephen-king.jpg",
                             AuthorName = "Stephen King",
                             AuthorBio = "Stephen Edwin King is an American author of horror, supernatural fiction, suspense, crime, science-fiction, and fantasy novels."
                         }
@@ -55,34 +55,34 @@
                     {
                         new Publication()
                         {
-                            PublicationLogo = "http://dotnethow.net/images/producers/producer-1.jpeg",
+                            PublicationLogo = "https://i.ibb.co/b6zswNr/bloomsbury.jpg",
                             PublicationName = "Bloomsbury Publishing",
                             PublicationFamousBooks= "Harry Potter and the Philosopher's Stone (1997), Harry Potter and the Chamber of Secrets (1998)"
                         },
                         new Publication()
                         {
-                            PublicationLogo = "http://dotnethow.net/images/producers/producer-2.jpeg",
+                            PublicationLogo = "https://i.ibb.co/BynY8VC/penguinrandomhouse.jpg",
                             PublicationName = "Penguin Random House",
                             PublicationFamousBooks = "The Dragons Promise,Soul Taken",
 
                         },
                         new Publication()
                         {
-                            PublicationLogo = "http://dotnethow.net/images/producers/producer-3.jpeg",
+                            PublicationLogo = "https://i.ibb.co/p2p3SHh/graywolfpress.png",
                             PublicationName = "Graywolf Press ",
                             PublicationFamousBooks= "The Apprentice,The Argonauts"
 
                         },
                         new Publication()
                         {
-                            PublicationLogo = "http://dotnethow.net/images/producers/producer-4.jpeg",
+                            PublicationLogo = "https://i.ibb.co/QPzCmfW/akshaic-books.png",
                             PublicationName = "Akashic Books ",
                             PublicationFamousBooks= "My mom: secret novelist,Black Sheep ",
 
                         },
                         new Publication()
                         {
-                            PublicationLogo = "http://dotnethow.net/images/producers/producer-5.jpeg",
+                            PublicationLogo = "https://i.ibb.co/CtDs7mv/hangingloosepress.png",
                             PublicationName= "Hanging Loose Press",
                             PublicationFamousBooks = "Making Maxine's Baby,Stone Fences",
 
@@ -128,7 +128,7 @@
                             BookName = "Harry Potter and the Deathly Hallows",
                             BookDescription = "Harry Potter and the Deathly Hallows is a fantasy novel written by British author J. K. Rowling",
                             BookPrice = 39.50,
-                            BookImageURL = "http://dotnethow.net/images/movies/movie-3.jpeg",
+                            BookImageURL = "https://i.ibb.co/m4B98f5/harrypotteranddeathlyhallows.jpg",
                             BookPublicationDate = Convert.ToDateTime("22/07/2007"),
                             PublicationID = 1,
                             CategoryID=1
@@ -138,7 +138,7 @@
                             BookName = "Charlie and the Chocolate Factory",
                             BookDescription = "Charlie and the Chocolate Factory is a 1964 children's novel by British author Roald Dahl.",
                             BookPrice = 100.50,
-                            BookImageURL = "http://dotnethow.net/images/movies/movie-3.jpeg",
+                            BookImageURL = "https://i.ibb.co/7CsVLHd/Charlieandthe-Chocolate-Factory.jpg",
                             BookPublicationDate = Convert.ToDateTime("23/05/2007"),
                             PublicationID =2,
                             CategoryID=2
@@ -148,7 +148,7 @@
                             BookName = "The Suitcase Kid",
                             BookDescription = "The Suitcase Kid is a children's novel written by Jacqueline Wilson and illustrated by Nick Sharratt. ",
                             BookPrice = 80.50,
-                            BookImageURL = "http://dotnethow.net/images/movies/movie-3.jpeg",
+                            BookImageURL = "https://i.ibb.co/f0yhhDd/The-Suitcase-Kid.jpg",
                             BookPublicationDate = Convert.ToDateTime("30/06/1992"),
                             PublicationID = 3,
                             CategoryID=3
@@ -159,7 +159,7 @@
                             BookName = "Hamlet",
                             BookDescription = "The Tragedy of Hamlet, Prince of Denmark, often shortened to Hamlet is a tragedy written by William Shakespeare sometime between 1599 and 1601.",
                             BookPrice = 76.50,
-                            BookImageURL = "http://dotnethow.net/images/movies/movie-3.jpeg",
+                            BookImageURL = "https://i.ibb.co/vj7Zc5S/hamlet.jpg",
                             BookPublicationDate = Convert.ToDateTime("23/07/2007"),
                             PublicationID = 4,
                             CategoryID=4
@@ -169,7 +169,7 @@
                             BookName = "The Stand",
                             BookDescription = "The Stand is a post-apocalyptic dark fantasy novel written by American author Stephen King and first published in 1978 by Doubleday.",
                             BookPrice = 45.50,
-                            BookImageURL = "http://dotnethow.net/images/movies/movie-3.jpeg",
+                            BookImageURL = "https://i.ibb.co/NnZdYm2/thestand.jpg",
                             BookPublicationDate = Convert.ToDateTime("15/02/2007"),
                             PublicationID = 5,
                             CategoryID=5

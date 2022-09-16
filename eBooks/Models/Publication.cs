@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace eBooks.Models
 {
@@ -9,7 +10,7 @@ namespace eBooks.Models
         public string PublicationLogo { get; set; }
         public string PublicationName { get; set; }
         public string PublicationFamousBooks { get; set; }
-
+        [ValidateNever]
         public List<Book> Books { get; set; }
     }
 }
