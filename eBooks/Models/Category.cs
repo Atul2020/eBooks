@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace eBooks.Models
 {
@@ -8,6 +9,7 @@ namespace eBooks.Models
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
 
+        [ValidateNever]
         public List<Book> Books { get; set; }
     }
 }

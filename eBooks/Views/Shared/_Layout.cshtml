@@ -11,9 +11,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-dark bg-primary navbar-expand-sm navbar-toggleable-sm @*navbar-light*@ @*bg-white*@ border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-dark bg-primary navbar-expand-sm navbar-toggleable-sm  bg-blue border-bottom box-shadow mb-3">
+            <a class="navbar-brand" asp-controller="Book" asp-action="Index"><img src="https://i.ibb.co/GFPGWmy/Amazon-Books-logo.png" alt="Amazon-Books-logo" border="0" width="250" height="75"></a>
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Book" asp-action="Index">eBooks</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,7 +21,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Book" asp-action="Index"><i class="bi bi-book"></i> Books</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Book" asp-action="Index"><i class="bi bi-book"></i> Best Seller</a>
                         </li>
                               <li class="nav-item dropdown">
                                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,13 +41,9 @@
                     <span class="algolia-places mr-2" style="position: relative; display: inline-block; direction: ltr;">   
                         <input name="searchString" type="text" class="form-control" placeholder="Search for a Book..." aria-label="Recipient's username" aria-describedby="button-addon2">
                     </span>
-                        <button class="btn btn-outline-success my-2 my-sm-0" style="line-height: 10px;" type="submit"><i class="bi bi-search"></i></button>
+                        <button class="btn btn-outline-success my-2 my-sm-0"  style="line-height: 10px;" type="submit"><i class="bi bi-search"></i></button>
                     </form>
                     </div>
-                    
-                    
-                  
-
                 </div>
             </div>
         </nav>

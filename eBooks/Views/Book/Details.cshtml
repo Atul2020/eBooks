@@ -52,7 +52,7 @@
                             <div class="row">
                                 @foreach (var author in Model.Author_Books)
                                 {
-                                    <div class="column text-center ">
+                                    <div class="col-4 text-center ">
                                         <img class="border-info rounded-circle" src="@author.Author.AuthorProfilePicture" style="max-width: 150px" />
                                         
                                         <a asp-controller="Author" asp-action="Details" asp-route-id="@author.AuthorID">@author.Author.AuthorName</a>
@@ -70,7 +70,7 @@
                                 Back to List
                             </a>
                             <a class="btn btn-success text-white @((DateTime.Now < Model.BookPublicationDate) ? "disabled" : "")" 
-                                   asp-controller="Orders" 
+                                   asp-controller="Order" 
                                    asp-action="AddItemToShoppingCart" 
                                    asp-route-id="@Model.BookID">
                                 <i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.BookPrice.ToString("c"))</a>
