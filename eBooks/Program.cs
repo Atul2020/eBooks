@@ -1,5 +1,7 @@
 using eBooks.Cart;
 using eBooks.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,15 @@ builder.Services.AddDbContext<BookDbContext>(options => options.UseSqlServer(bui
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+
+//Authentication and Authorization
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<BookDbContext>();
+builder.Services.AddMemoryCache();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+});
+
 builder.Services.AddSession();
 var app = builder.Build();
 
@@ -24,11 +35,15 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseSession(); 
+app.UseSession();
+//Authentication && Authorization
+app.UseAuthentication();
+
 
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 BookDBInitializer.Seed(app);
+BookDBInitializer.SeedUsersAndRolesAsync(app).Wait();
 app.Run();

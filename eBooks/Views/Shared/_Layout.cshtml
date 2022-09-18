@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -23,17 +25,21 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index"><i class="bi bi-book"></i> Best Seller</a>
                         </li>
-                              <li class="nav-item dropdown">
-                               <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="bi bi-gear"></i> Management
-                               </a>
-                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                               <a class="dropdown-item"  asp-controller="Review" asp-action="GetAllReviews"><i class="bi bi-star"></i> Reviews</a>
-                               <a class="dropdown-item"   asp-controller="Publication" asp-action="Index"><i class="bi bi-journal-text"></i> Publications</a>
-                               <a class="dropdown-item"   asp-controller="Author" asp-action="Index"><i class="bi bi-pen"></i> Authors</a>
-                               <a class="dropdown-item"   asp-controller="Category" asp-action="Index"><i class="bi bi-card-list"></i> Categories</a>
-                              </div>
-                              </li>
+
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-gear"></i> Management
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"  asp-controller="Review" asp-action="GetAllReviews"><i class="bi bi-star"></i> Reviews</a>
+                                    <a class="dropdown-item"   asp-controller="Publication" asp-action="Index"><i class="bi bi-journal-text"></i> Publications</a>
+                                    <a class="dropdown-item"   asp-controller="Author" asp-action="Index"><i class="bi bi-pen"></i> Authors</a>
+                                    <a class="dropdown-item"   asp-controller="Category" asp-action="Index"><i class="bi bi-card-list"></i> Categories</a>
+                                </div>
+                            </li>
+                        }
                     </ul>
                     
                      <div class="d-flex">
@@ -47,10 +53,21 @@
                     <ul class="navbar-nav">
                         @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
+
+                    @if(!User.Identity.IsAuthenticated){
+                    <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Account" asp-action="Login">
+                        <i class="bi bi-box-arrow-in-right"></i>Log In
+                    </a>
+                    <span style="padding:5px;"></span>
+                        <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Account" asp-action="Register">
+                            <i class="bi bi-person-plus"></i>Register
+                        </a>
+                    }
+                    else{
                         <div class="dropdown">
                             <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown"
                                     aria-expanded="false">
-                                <i class="bi bi-person-badge"></i>Hello User
+                                <i class="bi bi-person-badge"></i>Hello @UserManager.GetUserName(User)
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="profile-btn">
                                 <li>
@@ -61,6 +78,14 @@
 
                             </ul>
                         </div>
+                        <span style="padding: 5px;"></span>
+
+                        <form asp-controller="Account" asp-action="Logout">
+                            <button class="btn btn-outline-danger my-2 my-sm-0">
+                                <i class="bi bi-box-arrow-in-right"></i> Log out
+                            </button>
+                        </form>
+                        }
                     </div>
                 </div>
             </div>

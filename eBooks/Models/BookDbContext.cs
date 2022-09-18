@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+//The DBcontext file
 namespace eBooks.Models
 {
-    public class BookDbContext:DbContext
+    public class BookDbContext:IdentityDbContext<ApplicationUser>
     {
         public BookDbContext(DbContextOptions<BookDbContext> options) : base(options)
         {

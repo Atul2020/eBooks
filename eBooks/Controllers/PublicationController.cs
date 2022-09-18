@@ -12,13 +12,13 @@ namespace eBooks.Controllers
         {
             _context = context;
         }
-
+        //displays the publications
         public async Task<IActionResult> Index()
         {
             var data= await _context.Publications.ToListAsync();
             return View(data);
         }
-
+        //creates a publication
         public IActionResult Create()
         {
             return View();
@@ -36,7 +36,7 @@ namespace eBooks.Controllers
             return RedirectToAction("Index");
         }
 
-        //Get Author Details
+        //get the publication detail based on id
         public async Task<IActionResult> Details(int id)
         {
             a = _context.Publications.Find(id);
@@ -44,7 +44,7 @@ namespace eBooks.Controllers
             return View(a);
 
         }
-
+        //Edit the publication details
         public async Task<IActionResult> Edit(int id)
         {
             a = _context.Publications.Find(id);
@@ -63,7 +63,7 @@ namespace eBooks.Controllers
             return RedirectToAction("Index");
 
         }
-
+        //Delete the publication details
         public async Task<IActionResult> Delete(int id)
         {
             a = await _context.Publications.FindAsync(id);

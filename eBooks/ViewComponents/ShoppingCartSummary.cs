@@ -1,6 +1,6 @@
 ﻿using eBooks.Cart;
 using Microsoft.AspNetCore.Mvc;
-
+//view component file for a particular part of a view
 namespace eBooks.ViewComponents
 {
     public class ShoppingCartSummary:ViewComponent

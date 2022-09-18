@@ -14,19 +14,19 @@ namespace eBooks.Controllers
             _context = context;
         }
 
-
+        //displays the reviews based on id
         public async Task<IActionResult> Index(int id)
         {
             var data = await _context.Reviews.Include(x=>x.Book).Where(x=>x.BookID==id).ToListAsync();
             return View(data);
         }
-
+        //Gets all the reviews available
         public async Task<IActionResult> GetAllReviews()
         {
             var data = _context.Reviews.Include(x=>x.Book).ToList();
             return View(data);
         }
-
+        //creates the review
         public IActionResult Create()
         {
             var result = _context.Books.ToList();
@@ -45,7 +45,7 @@ namespace eBooks.Controllers
             _context.SaveChanges();
             return RedirectToAction("GetAllReviews");
         }
-
+        //Edit the review
         public async Task<IActionResult> Edit(int id)
         {
             a = _context.Reviews.Find(id);
@@ -66,7 +66,7 @@ namespace eBooks.Controllers
             return RedirectToAction("GetAllReviews");
 
         }
-
+        //delete the review
         public async Task<IActionResult> Delete(int id)
         {
             a = await _context.Reviews.Include(x => x.Book).Where(x => x.ReviewID == id).SingleAsync();

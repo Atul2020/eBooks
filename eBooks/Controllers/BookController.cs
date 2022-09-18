@@ -12,13 +12,13 @@ namespace eBooks.Controllers
         {
             _context = context;
         }
-
+        //display all book details
         public async Task<IActionResult> Index()
         {
             var data = await _context.Books.Include(x => x.Publication).Include(x => x.Category).ToListAsync();
             return View(data);
         }
-
+        //filter through the books and return based on searchstring
         public async Task<IActionResult> Filter(string searchString)
         {
             var data = await _context.Books.Include(x => x.Publication).Include(x => x.Category).ToListAsync();
@@ -32,6 +32,7 @@ namespace eBooks.Controllers
                 return View(data);
         }
 
+        //Get book details based on the route id
         public async Task<IActionResult> Details(int id)
         {
             var bookDetails = await _context.Books
@@ -41,6 +42,7 @@ namespace eBooks.Controllers
             return View(bookDetails);
         }
 
+        //Creating a new book
         public async Task<IActionResult> Create()
         {
             ViewBag.Categories = new SelectList(_context.Categories, "CategoryID", "CategoryName");
@@ -76,7 +78,7 @@ namespace eBooks.Controllers
             await _context.Books.AddAsync(newbook);
             await _context.SaveChangesAsync();
 
-            //Add Authors
+           
             foreach (var AuthorID in data.AuthorIDs)
             {
                 var newAuthorBook = new Author_Book()
@@ -89,7 +91,7 @@ namespace eBooks.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        //Editing the books
         public async Task<IActionResult> Edit(int id)
         {
             var a = await _context.Books.Include(x => x.Publication).Include(x => x.Category).Include(x => x.Author_Books).ThenInclude(x => x.Author).FirstOrDefaultAsync(x => x.BookID == id);
@@ -144,12 +146,12 @@ namespace eBooks.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            //Remove existing authors
+            
             var existingAuthorsDb = _context.Author_Books.Where(x => x.BookID == book.BookID).ToList();
             _context.Author_Books.RemoveRange(existingAuthorsDb);
             await _context.SaveChangesAsync();
 
-            //Add Book Authors
+            
             foreach (var authorId in book.AuthorIDs)
             {
                 var newAuthorMovie = new Author_Book()

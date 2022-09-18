@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
-
+//Model containing the author details
 namespace eBooks.Models
 {
     public class Author

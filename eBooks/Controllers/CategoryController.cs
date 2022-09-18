@@ -11,12 +11,13 @@ namespace eBooks.Controllers
         {
             _context = context;
         }
+        //displays the categories
         public IActionResult Index()
         {
             var data = _context.Categories.ToList();
             return View(data);
         }
-
+        //create a category
         public IActionResult Create()
         {
             return View();
@@ -33,6 +34,7 @@ namespace eBooks.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        //delete a category
         public async Task<IActionResult> Delete(int id)
         {
             a = await _context.Categories.FindAsync(id);

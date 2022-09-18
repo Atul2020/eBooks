@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+//model for the table books
 namespace eBooks.Models
 {
     public class Book
@@ -13,17 +13,17 @@ namespace eBooks.Models
         public string BookImageURL { get; set; }
         public DateTime BookPublicationDate { get; set; }
 
-        //Relationships
+      
         public List<Review> Reviews { get; set; }
         public List<Author_Book> Author_Books { get; set; }
 
 
-        //Category
+    
         public int CategoryID { get; set; }
         [ForeignKey("CategoryID")]
         public Category Category { get; set; }
 
-        //Publication
+        
         public int PublicationID { get; set; }
         [ForeignKey("PublicationID")]
 

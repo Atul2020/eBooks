@@ -16,7 +16,7 @@ namespace eBooks.Controllers
             var data = _context.Authors.ToList();
             return View(data);
         }
-
+        //Creating an author
         public IActionResult Create()
         {
             return View();
@@ -42,7 +42,7 @@ namespace eBooks.Controllers
             return View(a);
 
         }
-
+        //Editing the author details
         public async Task<IActionResult> Edit(int id)
         {
             a = _context.Authors.Find(id);

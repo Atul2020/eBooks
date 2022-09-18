@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+//model for the single shopping cart item 
 namespace eBooks.Models
 {
     public class ShoppingCartItem

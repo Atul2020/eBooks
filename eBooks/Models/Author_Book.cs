@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+//table that has the authorID with the respective BookID's
+//Many to many relationship
 namespace eBooks.Models
 {
     public class Author_Book
