@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-dark bg-primary navbar-expand-sm navbar-toggleable-sm  bg-blue border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-light bg- navbar-expand-sm navbar-toggleable-sm  bg-blue border-bottom box-shadow mb-3" style="background-color: #e3f2fd;">
             <a class="navbar-brand" asp-controller="Book" asp-action="Index"><img src="https://i.ibb.co/GFPGWmy/Amazon-Books-logo.png" alt="Amazon-Books-logo" border="0" width="250" height="75"></a>
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -21,10 +21,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Book" asp-action="Index"><i class="bi bi-book"></i> Best Seller</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index"><i class="bi bi-book"></i> Best Seller</a>
                         </li>
                               <li class="nav-item dropdown">
-                               <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <i class="bi bi-gear"></i> Management
                                </a>
                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -43,6 +43,24 @@
                     </span>
                         <button class="btn btn-outline-success my-2 my-sm-0"  style="line-height: 10px;" type="submit"><i class="bi bi-search"></i></button>
                     </form>
+
+                    <ul class="navbar-nav">
+                        @await Component.InvokeAsync("ShoppingCartSummary")
+                    </ul>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown"
+                                    aria-expanded="false">
+                                <i class="bi bi-person-badge"></i>Hello User
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Order" asp-action="Index">
+                                        <i class="bi bi-list"></i>Orders
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

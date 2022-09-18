@@ -26,7 +26,17 @@ namespace eBooks.Controllers
 
             return View(response);
         }
+       
+        public async Task<IActionResult> Index()
+        {
 
+           string userId = "";
+           var orders = await _context.Orders.Include(n => n.OrderItems).ThenInclude(n => n.Book).Where(n => n.UserId == userId).ToListAsync();
+           return View(orders);
+
+        }
+            
+       
         public async Task<IActionResult> AddItemToShoppingCart(int id)
         {
             var item = await _context.Books
@@ -54,6 +64,42 @@ namespace eBooks.Controllers
             }
             return RedirectToAction(nameof(ShoppingCart));
         }
+        public async Task<IActionResult> CompleteOrder()
+        {
+            var items = _shoppingCart.GetShoppingCartItems();
+            string userId = "";
+            string userEmailAddress = "";
+
+            var order = new Order()
+            {
+                UserId = userId,
+                Email = userEmailAddress
+            };
+            await _context.Orders.AddAsync(order);
+            await _context.SaveChangesAsync();
+
+            foreach (var item in items)
+            {
+                var orderItem = new OrderItem()
+                {
+                    Amount = item.Amount,
+                    BookID = item.Book.BookID,
+                    OrderId = order.OrderId,
+                    Price = item.Book.BookPrice
+                };
+                await _context.OrderItems.AddAsync(orderItem);
+            }
+
+            await _context.SaveChangesAsync();
+
+            await _shoppingCart.ClearShoppingCartAsync();
+
+            return View("OrderCompleted");
+        }
+
+    
+
+
 
     }
 }
