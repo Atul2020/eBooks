@@ -1,8 +1,11 @@
-﻿using eBooks.Models;
+﻿using eBooks.Data.Static;
+using eBooks.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eBooks.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class AuthorController : Controller
     {
         private readonly BookDbContext _context;
@@ -11,6 +14,7 @@ namespace eBooks.Controllers
         {
             _context = context;
         }
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var data = _context.Authors.ToList();
@@ -35,6 +39,7 @@ namespace eBooks.Controllers
         }
 
         //Get Author Details
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             a = _context.Authors.Find(id);

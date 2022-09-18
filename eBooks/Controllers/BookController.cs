@@ -1,10 +1,12 @@
 ﻿using eBooks.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace eBooks.Controllers
 {
+    [Authorize]
     public class BookController : Controller
     {
         private readonly BookDbContext _context;
@@ -13,11 +15,13 @@ namespace eBooks.Controllers
             _context = context;
         }
         //display all book details
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var data = await _context.Books.Include(x => x.Publication).Include(x => x.Category).ToListAsync();
             return View(data);
         }
+        [AllowAnonymous]
         //filter through the books and return based on searchstring
         public async Task<IActionResult> Filter(string searchString)
         {
@@ -32,6 +36,7 @@ namespace eBooks.Controllers
                 return View(data);
         }
 
+        [AllowAnonymous]
         //Get book details based on the route id
         public async Task<IActionResult> Details(int id)
         {

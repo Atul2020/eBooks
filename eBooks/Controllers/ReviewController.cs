@@ -1,10 +1,12 @@
 ﻿using eBooks.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace eBooks.Controllers
 {
+    [Authorize]
     public class ReviewController : Controller
     {
         private readonly BookDbContext _context;
@@ -15,6 +17,7 @@ namespace eBooks.Controllers
         }
 
         //displays the reviews based on id
+        [AllowAnonymous]
         public async Task<IActionResult> Index(int id)
         {
             var data = await _context.Reviews.Include(x=>x.Book).Where(x=>x.BookID==id).ToListAsync();

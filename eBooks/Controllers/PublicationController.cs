@@ -1,9 +1,12 @@
-﻿using eBooks.Models;
+﻿using eBooks.Data.Static;
+using eBooks.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace eBooks.Controllers
 {
+    [Authorize(Roles =UserRoles.Admin)]
     public class PublicationController : Controller
     {
         private readonly BookDbContext _context;
@@ -13,6 +16,7 @@ namespace eBooks.Controllers
             _context = context;
         }
         //displays the publications
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var data= await _context.Publications.ToListAsync();
@@ -37,6 +41,7 @@ namespace eBooks.Controllers
         }
 
         //get the publication detail based on id
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             a = _context.Publications.Find(id);

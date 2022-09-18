@@ -13,7 +13,9 @@
     <div class="d-flex justify-content-center row">
         <div class="col-md-10">
             <div class="row p-2 bg-white border rounded">
+                    @if(User.Identity.IsAuthenticated && User.IsInRole("Admin")){
                         <a class="text-dark float-right" asp-action="Edit" asp-controller="Book" asp-route-id="@item.BookID"><i class="bi bi-pencil-square"></i></a>
+                    }
                 <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="@item.BookImageURL"></div>
 
                 <div class="col-md-6 mt-1">

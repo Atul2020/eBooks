@@ -1,10 +1,14 @@
 ﻿using eBooks.Cart;
+using eBooks.Data.Static;
 using eBooks.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace eBooks.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class OrderController : Controller
     {
         private readonly ShoppingCart _shoppingCart;
@@ -26,15 +30,25 @@ namespace eBooks.Controllers
 
             return View(response);
         }
-       
+
         //Displays the orders
+
         public async Task<IActionResult> Index()
         {
-           string userId = "";
-           var orders = await _context.Orders.Include(n => n.OrderItems).ThenInclude(n => n.Book).Where(n => n.UserId == userId).ToListAsync();
-           return View(orders);
 
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userRole = User.FindFirstValue(ClaimTypes.Role);
+
+            var orders = await _context.Orders.Include(n => n.OrderItems).ThenInclude(n => n.Book).Include(n => n.User).ToListAsync();
+
+            if (userRole != "Admin")
+            {
+                orders = orders.Where(n => n.UserId == userId).ToList();
+            }
+            return View(orders);
         }
+ 
+        
             
        //Adds an item to shopping cart
         public async Task<IActionResult> AddItemToShoppingCart(int id)

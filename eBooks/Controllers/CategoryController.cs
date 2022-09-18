@@ -1,8 +1,11 @@
-﻿using eBooks.Models;
+﻿using eBooks.Data.Static;
+using eBooks.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eBooks.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class CategoryController : Controller
     {
         private readonly BookDbContext _context;
@@ -11,6 +14,7 @@ namespace eBooks.Controllers
         {
             _context = context;
         }
+        [AllowAnonymous]
         //displays the categories
         public IActionResult Index()
         {

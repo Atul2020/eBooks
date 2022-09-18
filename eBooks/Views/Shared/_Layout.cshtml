@@ -23,7 +23,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index"><i class="bi bi-book"></i> Best Seller</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index"><i class="bi bi-book"></i> Books</a>
                         </li>
 
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
@@ -75,6 +75,14 @@
                                         <i class="bi bi-list"></i>Orders
                                     </a>
                                 </li>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <li>
+                                            <a class="dropdown-item" asp-controller="Account" asp-action="Users">
+                                                <i class="bi bi-people"></i>Users
+                                            </a>
+                                        </li>
+                                    }
 
                             </ul>
                         </div>

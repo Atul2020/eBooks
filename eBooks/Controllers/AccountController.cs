@@ -2,6 +2,7 @@
 using eBooks.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace eBooks.Controllers
@@ -84,6 +85,11 @@ namespace eBooks.Controllers
         public IActionResult AccessDenied(string ReturnUrl)
         {
             return View();
+        }
+        public async Task<IActionResult> Users()
+        {
+            var users = await _context.Users.ToListAsync();
+            return View(users);
         }
     }
 }

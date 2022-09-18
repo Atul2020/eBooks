@@ -32,6 +32,9 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.AuthorID">Edit</a> |
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model?.AuthorID">Edit</a>
+    }
     <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
 </div>
