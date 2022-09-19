@@ -114,7 +114,7 @@ namespace eBooks.Migrations
 
                     b.HasKey("AuthorID");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Authors", (string)null);
                 });
 
             modelBuilder.Entity("eBooks.Models.Author_Book", b =>
@@ -129,7 +129,7 @@ namespace eBooks.Migrations
 
                     b.HasIndex("BookID");
 
-                    b.ToTable("Author_Books");
+                    b.ToTable("Author_Books", (string)null);
                 });
 
             modelBuilder.Entity("eBooks.Models.Book", b =>
@@ -170,7 +170,7 @@ namespace eBooks.Migrations
 
                     b.HasIndex("PublicationID");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("eBooks.Models.Category", b =>
@@ -187,7 +187,7 @@ namespace eBooks.Migrations
 
                     b.HasKey("CategoryID");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("eBooks.Models.Order", b =>
@@ -208,7 +208,7 @@ namespace eBooks.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("eBooks.Models.OrderItem", b =>
@@ -237,7 +237,7 @@ namespace eBooks.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItems", (string)null);
                 });
 
             modelBuilder.Entity("eBooks.Models.Publication", b =>
@@ -262,7 +262,7 @@ namespace eBooks.Migrations
 
                     b.HasKey("PublicationID");
 
-                    b.ToTable("Publications");
+                    b.ToTable("Publications", (string)null);
                 });
 
             modelBuilder.Entity("eBooks.Models.Review", b =>
@@ -287,7 +287,7 @@ namespace eBooks.Migrations
 
                     b.HasIndex("BookID");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Reviews", (string)null);
                 });
 
             modelBuilder.Entity("eBooks.Models.ShoppingCartItem", b =>
@@ -312,7 +312,7 @@ namespace eBooks.Migrations
 
                     b.HasIndex("BookID");
 
-                    b.ToTable("ShoppingCartItems");
+                    b.ToTable("ShoppingCartItems", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

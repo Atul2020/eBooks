@@ -11,10 +11,12 @@ namespace eBooks.Models
         public string BookReview { get; set; }
         public int BookRating { get; set; }
         [Display(Name ="Book Name")]
+        
         public int BookID { get; set; }
         [ForeignKey("BookID")]
         [ValidateNever]
         public Book Book { get; set; }
-        //public int UserID { get; set; }
+
+     
     }
 }

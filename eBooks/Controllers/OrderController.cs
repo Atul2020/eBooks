@@ -8,7 +8,7 @@ using System.Security.Claims;
 
 namespace eBooks.Controllers
 {
-    [Authorize(Roles = UserRoles.Admin)]
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly ShoppingCart _shoppingCart;
@@ -83,8 +83,8 @@ namespace eBooks.Controllers
         public async Task<IActionResult> CompleteOrder()
         {
             var items = _shoppingCart.GetShoppingCartItems();
-            string userId = "";
-            string userEmailAddress = "";
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userEmailAddress = User.FindFirstValue(ClaimTypes.Email);
 
             var order = new Order()
             {
@@ -110,7 +110,7 @@ namespace eBooks.Controllers
 
             await _shoppingCart.ClearShoppingCartAsync();
 
-            return View("OrderCompleted");
+            return View("CompleteOrder");
         }
 
     

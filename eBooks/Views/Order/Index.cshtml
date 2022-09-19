@@ -9,14 +9,12 @@
         <p>
             <h4>List of all your orders</h4>
         </p>
-
-        <table class="table">
+        <table class="table table-primary">
             <thead>
                 <tr>
                     <th>Order ID</th>
                     <th>Items</th>
                     <th>Total</th>
-
                     <th>User</th>
                 </tr>
             </thead>
@@ -30,7 +28,7 @@
                                 @foreach (var item in order.OrderItems)
                                 {
                                     <li>
-                                        <div class="alert alert-info" role="alert">
+                                        <div class="alert alert-warning" role="alert">
                                             <span class="badge bg-success">@item.Amount</span> [@item.Price.ToString("c")] - @item.Book.BookName
                                         </div>
                                     </li>
@@ -40,6 +38,13 @@
                         <td class="align-middle">
                             @order.OrderItems.Select(m => m.Book.BookPrice * m.Amount).Sum().ToString("c")
                         </td>
+
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")){
+                            <td class="align-middle"> @order.User.FullName</td>
+                        }
+                        else{
+                            <td></td>
+                        }
                     </tr>
                 }
             </tbody>

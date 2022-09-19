@@ -3,12 +3,9 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-@*<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
-</p>*@
+    <a asp-action="Create" class="btn btn-success">Add Review</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -36,11 +33,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Book.BookName)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ReviewID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ReviewID">Details</a> |
+                <td>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+                {
+                    <a asp-action="Edit" asp-route-id="@item.ReviewID">Edit</a>
+                }
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")){
                 <a asp-action="Delete" asp-route-id="@item.ReviewID">Delete</a>
-            </td>
+                }
+                </td>
         </tr>
 }
     </tbody>

@@ -285,43 +285,43 @@ namespace eBooks.Models
                     {
                         new Review()
                         {
-                            BookReview="sample review 1",
-                            BookRating=4,
+                            BookReview="The book is really good",
+                            BookRating=5,
                             BookID=1
                         },
                         new Review()
                         {
-                            BookReview="sample review 2",
+                            BookReview="nice book",
                             BookRating=3,
                             BookID=2
                         },
                         new Review()
                         {
-                            BookReview="sample review 3",
-                            BookRating=5,
+                            BookReview="terrible book",
+                            BookRating=2,
                             BookID=3
                         },
                         new Review()
                         {
-                            BookReview="sample review 4",
-                            BookRating=2,
+                            BookReview="easy to read and enjoyable",
+                            BookRating=4,
                             BookID=4
                         },
                         new Review()
                         {
-                            BookReview="sample review 5",
-                            BookRating=4,
+                            BookReview="awesome book to read",
+                            BookRating=5,
                             BookID=5
                         },
                     });
                     context.SaveChanges();
                 }
-                
-                
-                
-                
 
-                
+
+
+
+
+
             }
         }
         public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)

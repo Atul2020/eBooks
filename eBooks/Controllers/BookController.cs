@@ -1,4 +1,5 @@
-﻿using eBooks.Models;
+﻿using eBooks.Data.Static;
+using eBooks.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eBooks.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = UserRoles.Admin)]
     public class BookController : Controller
     {
         private readonly BookDbContext _context;

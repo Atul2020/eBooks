@@ -15,7 +15,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.CategoryName)
             </th>
-            <th></th>
+            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <th>Actions</th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -24,9 +27,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
             <td>
                 <a asp-action="Delete" asp-route-id="@item.CategoryID">Delete</a>
             </td>
+                }
         </tr>
 }
     </tbody>
