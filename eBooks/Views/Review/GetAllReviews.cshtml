@@ -7,9 +7,15 @@
 <h1>GetAllReviews</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <div class="text-white">
+        <a asp-action="Create" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Add Review
+        </a>
+    </div>
 </p>
-<table class="table">
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+<table class="table table-primary">
     <thead>
         <tr>
             <th>
@@ -37,11 +43,14 @@
                 @Html.DisplayFor(modelItem => item.Book.BookName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ReviewID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ReviewID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ReviewID">Delete</a>
+
+                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.ReviewID"><i class="bi bi-pencil-square"></i>Edit</a> |
+                <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.ReviewID"><i class="bi bi-eye"></i>Details</a> |
+                <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.ReviewID"><i class="bi bi-trash"></i>Delete </a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+</div>
+</div>

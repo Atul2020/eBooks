@@ -3,14 +3,9 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-@*<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>*@
-
-<table class="table">
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+<table class="table table-primary">
     <thead>
         <tr class="text-center">
             <th>
@@ -53,6 +48,8 @@
 }
     </tbody>
 </table>
+</div>
+</div>
 
 <div class="text-white">
     <a asp-controller="Publication" asp-action="Create" class="btn btn-success">

@@ -4,8 +4,15 @@
     ViewData["Title"] = "Index";
 }
 <p>
-    <a asp-action="Create" class="btn btn-success">Add Review</a>
+    
+    <div class="text-white">
+        <a  asp-action="Create" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Add Review
+        </a>
+    </div>
 </p>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
 <table class="table">
     <thead>
         <tr>
@@ -36,13 +43,15 @@
                 <td>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
                 {
-                    <a asp-action="Edit" asp-route-id="@item.ReviewID">Edit</a>
+                   <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.ReviewID"><i class="bi bi-pencil-square"></i>Edit</a>
                 }
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")){
-                <a asp-action="Delete" asp-route-id="@item.ReviewID">Delete</a>
+                <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.ReviewID"><i class="bi bi-trash"></i>Delete</a>
                 }
                 </td>
         </tr>
 }
     </tbody>
 </table>
+</div>
+</div>

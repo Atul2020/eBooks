@@ -17,8 +17,8 @@ namespace eBooks.Models
                 am.BookID
             });
 
-            modelBuilder.Entity<Author_Book>().HasOne(m => m.Author).WithMany(am => am.Author_Books).HasForeignKey(m => m.AuthorID);/*.OnDelete(DeleteBehavior.Restrict) ;*/
-            modelBuilder.Entity<Author_Book>().HasOne(m => m.Book).WithMany(am => am.Author_Books).HasForeignKey(m => m.BookID);/*.OnDelete(DeleteBehavior.Restrict);*/  
+            modelBuilder.Entity<Author_Book>().HasOne(m => m.Author).WithMany(am => am.Author_Books).HasForeignKey(m => m.AuthorID);
+            modelBuilder.Entity<Author_Book>().HasOne(m => m.Book).WithMany(am => am.Author_Books).HasForeignKey(m => m.BookID); 
 
 
             base.OnModelCreating(modelBuilder);

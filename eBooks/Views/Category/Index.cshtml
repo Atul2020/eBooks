@@ -4,12 +4,16 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 align="center">Categories</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<div class="text-white">
+    <a asp-controller="Category" asp-action="Create" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i> Add New
+    </a>
+</div>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+<table class="table table-primary">
     <thead>
         <tr>
             <th>
@@ -30,10 +34,12 @@
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                 {
             <td>
-                <a asp-action="Delete" asp-route-id="@item.CategoryID">Delete</a>
+                <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.CategoryID"><i class="bi bi-trash"></i>Delete</a>
             </td>
                 }
         </tr>
 }
     </tbody>
 </table>
+    </div>
+</div>
