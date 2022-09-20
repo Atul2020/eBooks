@@ -41,7 +41,6 @@ namespace eBooks.Controllers
                 TempData["Error"] = "Wrong credentials. Please, try again!";
                 return View(loginVM);
             }
-
             TempData["Error"] = "Wrong credentials. Please, try again!";
             return View(loginVM);
         }

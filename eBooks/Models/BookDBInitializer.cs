@@ -193,88 +193,27 @@ namespace eBooks.Models
                         },
                         new Author_Book()
                         {
-                            BookID = 1,
+                            BookID = 2,
+                            AuthorID = 2
+                        },
+
+                         new Author_Book()
+                        {
+                            BookID = 3,
                             AuthorID = 3
                         },
-
                          new Author_Book()
                         {
-                            BookID = 2,
-                            AuthorID = 1
-                        },
-                         new Author_Book()
-                        {
-                            BookID = 2,
+                            BookID = 4,
                             AuthorID = 4
                         },
 
                         new Author_Book()
                         {
-                            BookID = 3,
-                            AuthorID = 1
-                        },
-                        new Author_Book()
-                        {
-                            BookID = 3,
-                            AuthorID = 2
-                        },
-                        new Author_Book()
-                        {
-                            BookID = 3,
+                            BookID = 5,
                             AuthorID = 5
                         },
-
-
-                        new Author_Book()
-                        {
-                            BookID = 4,
-                            AuthorID = 2
-                        },
-                        new Author_Book()
-                        {
-                            BookID = 4,
-                            AuthorID= 3
-                        },
-                        new Author_Book()
-                        {
-                            BookID = 4,
-                            AuthorID = 4
-                        },
-
-
-                        new Author_Book()
-                        {
-                            BookID = 5,
-                            AuthorID = 2
-                        },
-                        new Author_Book()
-                        {
-                            BookID = 5,
-                            AuthorID= 3
-                        },
-                        new Author_Book()
-                        {
-                            BookID = 5,
-                            AuthorID = 4
-                        },
-                        new Author_Book()
-                        {
-                            BookID = 5,
-                           AuthorID = 5
-                        },
-
-
-                     
-                        new Author_Book()
-                        {
-                            BookID = 1,
-                            AuthorID = 4
-                        },
-                        new Author_Book()
-                        {
-                            BookID = 2,
-                            AuthorID = 5
-                        },
+                        
                     });
                     context.SaveChanges();
                 }
